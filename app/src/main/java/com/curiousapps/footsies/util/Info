@@ -1,0 +1,17 @@
+Android Coding Challenge: Harry Potter Character Explorer
+Requirements (Essentials - 30-45 minutes):
+	1.	API: Use the public Harry Potter API (https://hp-api.onrender.com/api/characters)
+	2.	Architecture:
+	◦	Implement a clean architecture of your choice (MVVM, MVI, MVVMI, etc.)
+	◦	Focus on proper state management to prevent unnecessary recompositions
+	3.	UI: Create with Jetpack Compose
+	4.	Main Screen:
+	◦	Display a title "Harry Potter Characters"
+	◦	Show a scrollable list of characters with:
+	▪	Character image
+	▪	Character name
+	▪	Character house
+	5.	Basic Navigation: When a user taps on a character, navigate to a simple detail screen showing "You selected [character name]"
+	6.	Error Handling: Display appropriate messages for:
+	◦	Network errors
+	◦	API errors
