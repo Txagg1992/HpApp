@@ -2,7 +2,6 @@ package com.curiousapps.footsies.ui.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.curiousapps.footsies.domain.StudentItem
 import com.curiousapps.footsies.domain.StudentRepository
 import com.curiousapps.footsies.util.IO_DISPATCHER

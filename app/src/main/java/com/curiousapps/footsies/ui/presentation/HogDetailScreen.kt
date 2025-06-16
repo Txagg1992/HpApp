@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.curiousapps.footsies.ui.presentation.component.Background
 import com.curiousapps.footsies.ui.presentation.component.HeaderImage
-import com.curiousapps.footsies.ui.presentation.component.TitleText
 
 @Composable
 fun HogDetailScreen(
