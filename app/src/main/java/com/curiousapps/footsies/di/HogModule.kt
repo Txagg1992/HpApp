@@ -19,7 +19,7 @@ object HogModule {
 
     @Provides
     @Singleton
-    fun provideHogwartsApi(): HogwartsApi{
+    fun provideHogwartsApi(): HogwartsApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

@@ -26,7 +26,7 @@ fun HogDetailScreen(
     studentItem: String,
     modifier: Modifier = Modifier,
     navController: NavController
-){
+) {
     Background()
     Column(
         modifier = Modifier.fillMaxWidth()

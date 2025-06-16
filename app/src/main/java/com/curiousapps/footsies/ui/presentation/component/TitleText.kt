@@ -13,12 +13,12 @@ import androidx.compose.ui.unit.sp
 fun TitleText(
     text: String,
     modifier: Modifier = Modifier
-){
+) {
     Row(
         modifier = modifier
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
-    ){
+    ) {
         Text(
             text = text,
             fontSize = 32.sp,

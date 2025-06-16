@@ -28,17 +28,19 @@ class MainActivity : ComponentActivity() {
                 NavHost(
                     navController = navController,
                     startDestination = "hog_list_screen"
-                ){
-                    composable("hog_list_screen"){
+                ) {
+                    composable("hog_list_screen") {
                         HogListScreen(navController = navController)
                     }
 
-                    composable("hog_detail_screen/{studentName}" ,
+                    composable(
+                        "hog_detail_screen/{studentName}",
                         arguments = listOf(
-                            navArgument("studentName"){
+                            navArgument("studentName") {
                                 type = NavType.StringType
                             },
-                        )){
+                        )
+                    ) {
                         val studentName = remember {
                             it.arguments?.getString("studentName")
                         }

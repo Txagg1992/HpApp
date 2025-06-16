@@ -13,11 +13,11 @@ import com.curiousapps.footsies.R
 fun HeaderImage(
     modifier: Modifier = Modifier,
     text: String
-){
+) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-    ){
+    ) {
         Image(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             painter = painterResource(id = R.drawable.harry_potter_title),

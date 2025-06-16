@@ -27,7 +27,7 @@ import com.curiousapps.footsies.domain.StudentItem
 fun HogRow(
     studentItem: StudentItem,
     modifier: Modifier = Modifier
-){
+) {
     Row(
         modifier = modifier.fillMaxWidth().padding(16.dp)
     ) {

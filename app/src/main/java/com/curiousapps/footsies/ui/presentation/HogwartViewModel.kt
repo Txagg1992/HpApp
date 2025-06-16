@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HogwartViewModel @Inject constructor(
     private val studentRepository: StudentRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableStateFlow(HogState())
     val state = _state
@@ -28,21 +28,26 @@ class HogwartViewModel @Inject constructor(
             HogState()
         )
 
-    private fun fetchAllStudents(){
+    private fun fetchAllStudents() {
         viewModelScope.launch(IO_DISPATCHER) {
             val result = studentRepository.fetchAllStudents()
-            when{
+            when {
                 result.isSuccess -> {
-                    _state.update { it.copy(
-                        hogItem = result.getOrNull()!!,
-                        isLoading = false
-                    ) }
+                    _state.update {
+                        it.copy(
+                            hogItem = result.getOrNull()!!,
+                            isLoading = false
+                        )
+                    }
                 }
+
                 result.isFailure -> {
-                    _state.update { it.copy(
-                        hogItem = emptyList(),
-                        isLoading = false
-                    ) }
+                    _state.update {
+                        it.copy(
+                            hogItem = emptyList(),
+                            isLoading = false
+                        )
+                    }
                 }
             }
         }

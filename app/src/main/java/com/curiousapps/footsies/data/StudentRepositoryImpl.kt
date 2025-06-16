@@ -13,10 +13,10 @@ class StudentRepositoryImpl @Inject constructor(
         try {
             hogwartsApi.fetchAllStudents()
                 .let {
-                return Result.success(it)
-            }
+                    return Result.success(it)
+                }
 
-        }catch (e: IOException){
+        } catch (e: IOException) {
             return Result.failure(e)
         }
     }

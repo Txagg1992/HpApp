@@ -85,14 +85,14 @@ fun HogListScreen(
                 .padding(top = 32.dp)
         ) {
             LazyColumn(
-              modifier = Modifier
-                  .fillMaxSize()
-                  .offset {
-                      IntOffset(0, currentImageSize.roundToPx())
-                  }
+                modifier = Modifier
+                    .fillMaxSize()
+                    .offset {
+                        IntOffset(0, currentImageSize.roundToPx())
+                    }
             ) {
                 val count = studentList.size
-                items(count){ index ->
+                items(count) { index ->
                     HogRow(
                         modifier = Modifier.clickable {
                             navController.navigate(

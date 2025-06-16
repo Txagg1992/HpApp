@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun Background(){
+fun Background() {
 
     val background = Brush.verticalGradient(
         listOf(
