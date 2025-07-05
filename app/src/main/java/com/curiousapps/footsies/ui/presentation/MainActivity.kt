@@ -34,9 +34,12 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(
-                        "hog_detail_screen/{studentName}",
+                        "hog_detail_screen/{studentName}/{id}",
                         arguments = listOf(
                             navArgument("studentName") {
+                                type = NavType.StringType
+                            },
+                            navArgument("id") {
                                 type = NavType.StringType
                             },
                         )
@@ -44,8 +47,12 @@ class MainActivity : ComponentActivity() {
                         val studentName = remember {
                             it.arguments?.getString("studentName")
                         }
+                        val id =  remember {
+                            it.arguments?.getString("id")
+                        }
                         HogDetailScreen(
                             studentItem = studentName ?: "",
+                            id = id ?: "",
                             navController = navController
                         )
                     }

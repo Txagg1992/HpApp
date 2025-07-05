@@ -1,5 +1,6 @@
 package com.curiousapps.footsies.ui.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.curiousapps.footsies.domain.StudentItem
@@ -15,46 +16,39 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HogwartViewModel @Inject constructor(
-    private val studentRepository: StudentRepository
-) : ViewModel() {
+class DetailViewModel @Inject constructor(
 
-    private val _state = MutableStateFlow(HogState())
+    private val studentRepository: StudentRepository
+): ViewModel() {
+    private val _state = MutableStateFlow(DetailState())
     val state = _state
-        .onStart { fetchAllStudents() }
+        .onStart {  }
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(4000L),
-            HogState()
+            DetailState()
         )
 
-    private fun fetchAllStudents() {
+     fun fetchOneStudent(id: String){
         viewModelScope.launch(IO_DISPATCHER) {
-            val result = studentRepository.fetchAllStudents()
-            when {
+            val result = studentRepository.fetchOneStudent(id)
+            when{
                 result.isSuccess -> {
-                    _state.update {
-                        it.copy(
-                            hogItem = result.getOrNull()!!,
-                            isLoading = false
-                        )
-                    }
+                    _state.update { it.copy(
+                        selectStudent = result.getOrNull()!!
+                    ) }
                 }
-
                 result.isFailure -> {
-                    _state.update {
-                        it.copy(
-                            hogItem = emptyList(),
-                            isLoading = false
-                        )
-                    }
+                    _state.update { it.copy(
+                        selectStudent = emptyList()
+                    ) }
+                    Log.e("HogwartViewModel", "Load failed")
                 }
             }
         }
     }
 
-    data class HogState(
-        val hogItem: List<StudentItem> = emptyList(),
-        val isLoading: Boolean = true,
+    data class DetailState(
+        val selectStudent: List<StudentItem> = emptyList()
     )
 }

@@ -1,7 +1,5 @@
 package com.curiousapps.footsies.ui.presentation.component
 
-//import coil.request.crossfade
-//import coil.request.placeholder
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

@@ -84,6 +84,17 @@ fun HogListScreen(
                 .padding(16.dp)
                 .padding(top = 32.dp)
         ) {
+            HeaderImage(
+                modifier = modifier
+                    .width(300.dp)
+                    .align(Alignment.TopCenter)
+                    .graphicsLayer {
+                        scaleX = imageScale
+                        scaleY = imageScale
+                        translationY = -(maxImageSize.toPx() - currentImageSize.toPx()) / 2f
+                    },
+                text = "Characters"
+            )
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
@@ -96,24 +107,13 @@ fun HogListScreen(
                     HogRow(
                         modifier = Modifier.clickable {
                             navController.navigate(
-                                "hog_detail_screen/${studentList[index].name}"
+                                "hog_detail_screen/${studentList[index].name}/${studentList[index].id}"
                             )
                         },
                         studentItem = studentList[index]
                     )
                 }
             }
-            HeaderImage(
-                modifier = modifier
-                    .width(300.dp)
-                    .align(Alignment.TopCenter)
-                    .graphicsLayer {
-                        scaleX = imageScale
-                        scaleY = imageScale
-                        translationY = -(maxImageSize.toPx() - currentImageSize.toPx()) / 2f
-                    },
-                text = "Characters"
-            )
         }
     }
 }
